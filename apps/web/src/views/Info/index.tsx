@@ -1,8 +1,7 @@
 import { useTranslation } from '@pancakeswap/localization'
-import { SubMenuItems } from '@pancakeswap/uikit'
 import { useRouter } from 'next/router'
-import { useChainNameByQuery, useMultiChainPath } from 'state/info/hooks'
 import { useMemo } from 'react'
+import { useChainNameByQuery, useMultiChainPath } from 'state/info/hooks'
 import InfoNav from './components/InfoNav'
 
 export const InfoPageLayout = ({ children }) => {
@@ -31,7 +30,7 @@ export const InfoPageLayout = ({ children }) => {
 
   return (
     <>
-      <SubMenuItems items={subMenuItems} activeItem={isStableSwap ? '/info?type=stableSwap' : `/info${chainPath}`} />
+      {/* <SubMenuItems items={subMenuItems} activeItem={isStableSwap ? '/info?type=stableSwap' : `/info${chainPath}`} /> */}
 
       <InfoNav isStableSwap={isStableSwap} />
       {children}

@@ -9,7 +9,7 @@ import {
   StyledList,
   StyledListItem,
   StyledSocialLinks,
-  StyledText,
+  StyledText,   
   StyledToolsContainer,
 } from "./styles";
 

@@ -3,7 +3,6 @@ import { useTranslation } from '@pancakeswap/localization'
 import {
   Box,
   Breadcrumbs,
-  Button,
   ButtonMenu,
   ButtonMenuItem,
   Card,
@@ -14,19 +13,19 @@ import {
   Spinner,
   Text,
   useMatchBreakpoints,
-  useTooltip,
+  useTooltip
 } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
 import { getChainName } from '@pancakeswap/chains'
+import { useQuery } from '@tanstack/react-query'
 import BigNumber from 'bignumber.js'
 import Page from 'components/Layout/Page'
-import { CHAIN_QUERY_NAME } from 'config/chains'
 import useInfoUserSavedTokensAndPools from 'hooks/useInfoUserSavedTokensAndPoolsList'
 import { useStableSwapAPR } from 'hooks/useStableSwapAPR'
 import { NextSeo } from 'next-seo'
 import { useMemo, useState } from 'react'
-import { checkIsStableSwap, multiChainId, multiChainScan, ChainLinkSupportChains } from 'state/info/constant'
+import { ChainLinkSupportChains, checkIsStableSwap, multiChainId, multiChainScan } from 'state/info/constant'
 import {
   useChainIdByQuery,
   useChainNameByQuery,
@@ -37,7 +36,6 @@ import {
   useStableSwapPath,
 } from 'state/info/hooks'
 import { styled } from 'styled-components'
-import { useQuery } from '@tanstack/react-query'
 import { getBlockExploreLink } from 'utils'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { CurrencyLogo, DoubleCurrencyLogo } from 'views/Info/components/CurrencyLogo'
@@ -201,18 +199,18 @@ const PoolPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ addr
                 </NextLinkFromReactRouter>
               </Flex>
               <Flex>
-                <NextLinkFromReactRouter
+                {/* <NextLinkFromReactRouter
                   to={`/add/${poolData.token0.address}/${poolData.token1.address}?chain=${CHAIN_QUERY_NAME[chainId]}`}
                 >
                   <Button mr="8px" variant="secondary">
                     {t('Add Liquidity')}
                   </Button>
-                </NextLinkFromReactRouter>
-                <NextLinkFromReactRouter
+                </NextLinkFromReactRouter> */}
+                {/* <NextLinkFromReactRouter
                   to={`/swap?inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}&chainId=${multiChainId[chainName]}`}
                 >
                   <Button>{t('Trade')}</Button>
-                </NextLinkFromReactRouter>
+                </NextLinkFromReactRouter> */}
               </Flex>
             </Flex>
           </Flex>

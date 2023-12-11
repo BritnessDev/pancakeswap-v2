@@ -1,18 +1,14 @@
 import { useIsMounted } from "@pancakeswap/hooks";
 import throttle from "lodash/throttle";
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { styled } from "styled-components";
+import { AtomBox } from "../../components/AtomBox";
 import BottomNav from "../../components/BottomNav";
 import { Box } from "../../components/Box";
 import Flex from "../../components/Box/Flex";
-import { AtomBox } from "../../components/AtomBox";
-import CakePrice from "../../components/CakePrice/CakePrice";
 import Footer from "../../components/Footer";
-import LangSelector from "../../components/LangSelector/LangSelector";
-import MenuItems from "../../components/MenuItems/MenuItems";
 import { SubMenuItems } from "../../components/SubMenuItems";
 import { useMatchBreakpoints } from "../../contexts";
-import Logo from "./components/Logo";
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import { MenuContext } from "./context";
 import { NavProps } from "./types";
@@ -144,38 +140,10 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
         }}
       >
         <Wrapper>
-          <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
-            {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
-            <StyledNav>
-              <Flex>
-                <Logo href={homeLink?.href ?? "/"} />
-                <AtomBox display={{ xs: "none", md: "block" }}>
-                  <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
-                </AtomBox>
-              </Flex>
-              <Flex alignItems="center" height="100%">
-                <AtomBox mr="12px" display={{ xs: "none", lg: "block" }}>
-                  <CakePrice chainId={chainId} showSkeleton={false} cakePriceUsd={cakePriceUsd} />
-                </AtomBox>
-                <Box mt="4px">
-                  <LangSelector
-                    currentLang={currentLang}
-                    langs={langs}
-                    setLang={setLang}
-                    buttonScale="xs"
-                    color="textSubtle"
-                    hideLanguage
-                  />
-                </Box>
-                {rightSide}
-              </Flex>
-            </StyledNav>
-          </FixedContainer>
           {subLinks ? (
             <Flex justifyContent="space-around" overflow="hidden">
               <SubMenuItems
                 items={subLinksWithoutMobile}
-                mt={`${totalTopMenuHeight + 1}px`}
                 activeItem={activeSubItem}
               />
 

@@ -67,9 +67,9 @@ const Breadcrumbs: React.FC<React.PropsWithChildren<BreadcrumbsProps>> = ({
 
   return (
     <StyledBreadcrumbs>
-      {items.map((item, index) => (
+      {/* {items.map((item, index) => (
         <li key={`child-${index}`}>{item}</li>
-      ))}
+      ))} */}
     </StyledBreadcrumbs>
   );
 };
